@@ -8,6 +8,8 @@ import javafx.scene.control.TabPane;
 
 public class Home {
 
+    App a = new App();
+
     @FXML private TabPane tP_Tables;
     @FXML private Tab tb_TableOne;
     @FXML private Tab tb_TableTwo;
@@ -18,7 +20,11 @@ public class Home {
     @FXML
     private void TableOneAction(ActionEvent event) {
 
-
+        try {
+            a.startTelephoneLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

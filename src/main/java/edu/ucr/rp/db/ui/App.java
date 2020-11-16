@@ -14,6 +14,13 @@ public class App extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        //stage.resizableProperty().setValue(Boolean.FALSE);
     }
+
+    public void startTelephoneLine(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("TelephoneLine.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -38,5 +40,15 @@
             </Tab>
         </tabs>
       </TabPane>
+      <ImageView layoutX="775.0" layoutY="430.0">
+         <image>
+            <Image url="@../../../../../../../../../Resources/llamada-telefonica(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="752.0" layoutY="564.0" prefHeight="36.0" prefWidth="174.0" text="Compañía Telefónica">
+         <font>
+            <Font name="Freestyle Script" size="34.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

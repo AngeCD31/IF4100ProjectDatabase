@@ -3,14 +3,14 @@ package edu.ucr.rp.db.ui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
-public class Home {
+public class Client {
 
     App a = new App();
 
-    @FXML private TabPane tP_Tables;
+    @FXML
+    private TabPane tP_Tables;
     @FXML private Button bT_TableOne;
     @FXML private Button bT_TableTwo;
     @FXML private Button bT_TableThree;

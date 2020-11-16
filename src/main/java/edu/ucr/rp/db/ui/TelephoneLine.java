@@ -9,13 +9,15 @@ import java.util.ResourceBundle;
 
 public class TelephoneLine {
 
+    App a = new App();
+
     @FXML
     private TabPane tP_Tables;
-    @FXML private Tab tb_TableOne;
-    @FXML private Tab tb_TableTwo;
-    @FXML private Tab tb_TableThree;
-    @FXML private Tab tb_TableFour;
-    @FXML private Tab tb_TableFive;
+    @FXML private Button bT_TableOne;
+    @FXML private Button bT_TableTwo;
+    @FXML private Button bT_TableThree;
+    @FXML private Button bT_TableFour;
+    @FXML private Button bT_TableFive;
     @FXML private ComboBox cB_LineType;
     @FXML private TextField tF_PhoneNumber;
     @FXML private Button bT_Add;
@@ -24,20 +26,33 @@ public class TelephoneLine {
     @FXML
     private void TableOneAction(ActionEvent event) {
 
-
+        try {
+            a.startTelephoneLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     private void TableTwoAction(ActionEvent event) {
 
-
+        try {
+            a.startService();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     private void TableThreeAction(ActionEvent event) {
 
+        try {
+            a.startClient();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }

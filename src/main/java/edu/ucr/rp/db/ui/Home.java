@@ -2,13 +2,13 @@ package edu.ucr.rp.db.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class Home {
-
-    App a = new App();
 
     @FXML private TabPane tP_Tables;
     @FXML private Button bT_TableOne;
@@ -16,37 +16,43 @@ public class Home {
     @FXML private Button bT_TableThree;
     @FXML private Button bT_TableFour;
     @FXML private Button bT_TableFive;
+    @FXML private Pane P_LinePane;
+    @FXML private Pane P_ServicePane;
+    @FXML private ComboBox cB_LineType;
+    @FXML private TextField tF_PhoneNumber;
+    @FXML private Button bT_Add;
+    @FXML private Button bT_Remove;
+
+    @FXML
+    public void initialize(){
+
+        P_LinePane.setVisible(false);
+        P_ServicePane.setVisible(false);
+        cB_LineType.getItems().addAll("Básica", "ADSL", "RDSI");
+
+    }
 
     @FXML
     private void TableOneAction(ActionEvent event) {
 
-        try {
-            a.startTelephoneLine();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        P_LinePane.setVisible(true);
+        P_ServicePane.setVisible(false);
+
 
     }
 
     @FXML
     private void TableTwoAction(ActionEvent event) {
 
-        try {
-            a.startService();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        P_ServicePane.setVisible(true);
+        P_LinePane.setVisible(false);
 
     }
 
     @FXML
     private void TableThreeAction(ActionEvent event) {
 
-        try {
-            a.startClient();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
     }
 
@@ -63,5 +69,6 @@ public class Home {
 
 
     }
+
 
 }

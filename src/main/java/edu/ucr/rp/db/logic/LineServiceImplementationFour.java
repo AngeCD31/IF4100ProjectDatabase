@@ -1,35 +1,35 @@
-package edu.ucr.rp.db.logic.line;
+package edu.ucr.rp.db.logic;
 
-import edu.ucr.rp.db.domain.LineOne;
-import edu.ucr.rp.db.persistance.LinePersistanceOne;
+import edu.ucr.rp.db.domain.LineFour;
+import edu.ucr.rp.db.persistance.LinePersistanceFour;
 import edu.ucr.rp.db.persistance.Persistance;
 import edu.ucr.rp.db.persistance.PersistanceException;
 
 import java.util.List;
 
-public class LineServiceImplementationOne implements LineService<LineOne, String>{
+public class LineServiceImplementationFour implements LineService<LineFour, String>{
 
-    private static LineServiceImplementationOne instance;
-    private static Persistance<LineOne, String> persistance;
+    private static LineServiceImplementationFour instance;
+    private static Persistance<LineFour, String> persistance;
 
-    public static LineServiceImplementationOne getInstance() {
+    public static LineServiceImplementationFour getInstance() {
         if (instance == null)
-            instance = new LineServiceImplementationOne();
+            instance = new LineServiceImplementationFour();
         return instance;
     }
 
-    private LineServiceImplementationOne() {
-        persistance = new LinePersistanceOne();
+    private LineServiceImplementationFour() {
+        persistance = new LinePersistanceFour();
 
     }
 
     @Override
-    public void create(LineOne line) throws LineServiceException {
+    public void create(LineFour line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
-        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getNumberLine())).isEmpty())
+        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getIdCard())).isEmpty())
             throw new LineServiceException("Número de línea inválido.");
-        if (Integer.toString(line.getIdCard()) == null || (Integer.toString(line.getIdCard())).isEmpty())
+        if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
             throw new LineServiceException("Debe ingresar un ID.");
         try {
             persistance.create(line);
@@ -39,7 +39,7 @@ public class LineServiceImplementationOne implements LineService<LineOne, String
     }
 
     @Override
-    public List<LineOne> read() throws LineServiceException {
+    public List<LineFour> read() throws LineServiceException {
         try {
             return persistance.read();
         } catch (PersistanceException e) {
@@ -48,7 +48,7 @@ public class LineServiceImplementationOne implements LineService<LineOne, String
     }
 
     @Override
-    public List<LineOne> read(String key) throws LineServiceException {
+    public List<LineFour> read(String key) throws LineServiceException {
         try {
             return persistance.read(key);
         } catch (PersistanceException e) {
@@ -57,12 +57,12 @@ public class LineServiceImplementationOne implements LineService<LineOne, String
     }
 
     @Override
-    public void update(LineOne line) throws LineServiceException {
+    public void update(LineFour line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
-        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getNumberLine())).isEmpty())
+        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getIdCard())).isEmpty())
             throw new LineServiceException("Número de línea inválido.");
-        if (Integer.toString(line.getIdCard()) == null || (Integer.toString(line.getIdCard())).isEmpty())
+        if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
             throw new LineServiceException("Debe ingresar un ID.");
         try {
             persistance.update(line);
@@ -72,7 +72,7 @@ public class LineServiceImplementationOne implements LineService<LineOne, String
     }
 
     @Override
-    public void delete(LineOne line) throws LineServiceException {
+    public void delete(LineFour line) throws LineServiceException {
         try {
             persistance.delete(line);
         } catch (PersistanceException e) {

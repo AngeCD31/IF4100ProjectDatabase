@@ -1,4 +1,4 @@
-package edu.ucr.rp.db.logic.line;
+package edu.ucr.rp.db.logic;
 
 public class LineServiceException extends Exception{
 

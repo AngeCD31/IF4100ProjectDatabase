@@ -1,30 +1,30 @@
-package edu.ucr.rp.db.logic.line;
+package edu.ucr.rp.db.logic;
 
-import edu.ucr.rp.db.domain.LineThree;
-import edu.ucr.rp.db.persistance.LinePersistanceThree;
+import edu.ucr.rp.db.domain.LineTwo;
+import edu.ucr.rp.db.persistance.LinePersistanceTwo;
 import edu.ucr.rp.db.persistance.Persistance;
 import edu.ucr.rp.db.persistance.PersistanceException;
 
 import java.util.List;
 
-public class LineServiceImplementationThree implements LineService<LineThree, String>{
+public class LineServiceImplementationTwo implements LineService<LineTwo, String>{
 
-    private static LineServiceImplementationThree instance;
-    private static Persistance<LineThree, String> persistance;
+    private static LineServiceImplementationTwo instance;
+    private static Persistance<LineTwo, String> persistance;
 
-    public static LineServiceImplementationThree getInstance() {
+    public static LineServiceImplementationTwo getInstance() {
         if (instance == null)
-            instance = new LineServiceImplementationThree();
+            instance = new LineServiceImplementationTwo();
         return instance;
     }
 
-    private LineServiceImplementationThree() {
-        persistance = new LinePersistanceThree();
+    private LineServiceImplementationTwo() {
+        persistance = new LinePersistanceTwo();
 
     }
 
     @Override
-    public void create(LineThree line) throws LineServiceException {
+    public void create(LineTwo line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
         if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
@@ -37,7 +37,7 @@ public class LineServiceImplementationThree implements LineService<LineThree, St
     }
 
     @Override
-    public List<LineThree> read() throws LineServiceException {
+    public List<LineTwo> read() throws LineServiceException {
         try {
             return persistance.read();
         } catch (PersistanceException e) {
@@ -46,7 +46,7 @@ public class LineServiceImplementationThree implements LineService<LineThree, St
     }
 
     @Override
-    public List<LineThree> read(String key) throws LineServiceException {
+    public List<LineTwo> read(String key) throws LineServiceException {
         try {
             return persistance.read(key);
         } catch (PersistanceException e) {
@@ -55,7 +55,7 @@ public class LineServiceImplementationThree implements LineService<LineThree, St
     }
 
     @Override
-    public void update(LineThree line) throws LineServiceException {
+    public void update(LineTwo line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
         if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
@@ -68,7 +68,7 @@ public class LineServiceImplementationThree implements LineService<LineThree, St
     }
 
     @Override
-    public void delete(LineThree line) throws LineServiceException {
+    public void delete(LineTwo line) throws LineServiceException {
         try {
             persistance.delete(line);
         } catch (PersistanceException e) {

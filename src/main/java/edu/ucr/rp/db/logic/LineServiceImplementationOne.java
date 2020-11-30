@@ -1,33 +1,35 @@
-package edu.ucr.rp.db.logic.line;
+package edu.ucr.rp.db.logic;
 
-import edu.ucr.rp.db.domain.LineTwo;
-import edu.ucr.rp.db.persistance.LinePersistanceTwo;
+import edu.ucr.rp.db.domain.LineOne;
+import edu.ucr.rp.db.persistance.LinePersistanceOne;
 import edu.ucr.rp.db.persistance.Persistance;
 import edu.ucr.rp.db.persistance.PersistanceException;
 
 import java.util.List;
 
-public class LineServiceImplementationTwo implements LineService<LineTwo, String>{
+public class LineServiceImplementationOne implements LineService<LineOne, String>{
 
-    private static LineServiceImplementationTwo instance;
-    private static Persistance<LineTwo, String> persistance;
+    private static LineServiceImplementationOne instance;
+    private static Persistance<LineOne, String> persistance;
 
-    public static LineServiceImplementationTwo getInstance() {
+    public static LineServiceImplementationOne getInstance() {
         if (instance == null)
-            instance = new LineServiceImplementationTwo();
+            instance = new LineServiceImplementationOne();
         return instance;
     }
 
-    private LineServiceImplementationTwo() {
-        persistance = new LinePersistanceTwo();
+    private LineServiceImplementationOne() {
+        persistance = new LinePersistanceOne();
 
     }
 
     @Override
-    public void create(LineTwo line) throws LineServiceException {
+    public void create(LineOne line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
-        if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
+        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getNumberLine())).isEmpty())
+            throw new LineServiceException("Número de línea inválido.");
+        if (Integer.toString(line.getIdCard()) == null || (Integer.toString(line.getIdCard())).isEmpty())
             throw new LineServiceException("Debe ingresar un ID.");
         try {
             persistance.create(line);
@@ -37,7 +39,7 @@ public class LineServiceImplementationTwo implements LineService<LineTwo, String
     }
 
     @Override
-    public List<LineTwo> read() throws LineServiceException {
+    public List<LineOne> read() throws LineServiceException {
         try {
             return persistance.read();
         } catch (PersistanceException e) {
@@ -46,7 +48,7 @@ public class LineServiceImplementationTwo implements LineService<LineTwo, String
     }
 
     @Override
-    public List<LineTwo> read(String key) throws LineServiceException {
+    public List<LineOne> read(String key) throws LineServiceException {
         try {
             return persistance.read(key);
         } catch (PersistanceException e) {
@@ -55,10 +57,12 @@ public class LineServiceImplementationTwo implements LineService<LineTwo, String
     }
 
     @Override
-    public void update(LineTwo line) throws LineServiceException {
+    public void update(LineOne line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
-        if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
+        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getNumberLine())).isEmpty())
+            throw new LineServiceException("Número de línea inválido.");
+        if (Integer.toString(line.getIdCard()) == null || (Integer.toString(line.getIdCard())).isEmpty())
             throw new LineServiceException("Debe ingresar un ID.");
         try {
             persistance.update(line);
@@ -68,7 +72,7 @@ public class LineServiceImplementationTwo implements LineService<LineTwo, String
     }
 
     @Override
-    public void delete(LineTwo line) throws LineServiceException {
+    public void delete(LineOne line) throws LineServiceException {
         try {
             persistance.delete(line);
         } catch (PersistanceException e) {

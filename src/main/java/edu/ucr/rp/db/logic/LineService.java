@@ -1,4 +1,4 @@
-package edu.ucr.rp.db.logic.line;
+package edu.ucr.rp.db.logic;
 
 import java.util.List;
 

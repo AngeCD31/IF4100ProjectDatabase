@@ -1,58 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="644.0" prefWidth="943.0" style="-fx-background-color: #009688;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ucr.rp.db.ui.Home">
+<AnchorPane prefHeight="642.0" prefWidth="953.0" style="-fx-background-color: #009688;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ucr.rp.db.ui.Home">
     <children>
-        <Label layoutX="735.0" layoutY="564.0" prefHeight="36.0" prefWidth="174.0" text="Compañía Telefónica">
-            <font>
-                <Font name="Freestyle Script" size="34.0" />
-            </font>
-        </Label>
-        <HBox prefHeight="41.0" prefWidth="965.0" style="-fx-background-color: #e8e0db;">
+        <Pane fx:id="P_LinePane" layoutX="-1.0" layoutY="-4.0" prefHeight="657.0" prefWidth="965.0" style="-fx-background-color: #009688;">
             <children>
-                <Button fx:id="bT_TableOne" mnemonicParsing="false" onAction="#TableOneAction" prefHeight="50.0" prefWidth="144.0" text="Líneas de clientes">
-                    <font>
-                        <Font name="Leelawadee UI" size="15.0" />
-                    </font>
-                </Button>
-                <Button fx:id="bT_TableTwo" mnemonicParsing="false" onAction="#TableTwoAction" prefHeight="31.0" prefWidth="145.0" text="Servicios">
-                    <font>
-                        <Font name="Leelawadee UI" size="15.0" />
-                    </font>
-                </Button>
-                <Button fx:id="bT_TableThree" mnemonicParsing="false" onAction="#TableThreeAction" prefHeight="31.0" prefWidth="134.0" text="Facturas">
-                    <font>
-                        <Font name="Leelawadee UI" size="15.0" />
-                    </font>
-                </Button>
-            </children>
-            <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </padding>
-        </HBox>
-        <Label layoutX="822.0" layoutY="543.0" />
-        <ImageView layoutX="758.0" layoutY="426.0">
-            <image>
-                <Image url="@llamada-telefonica(1).png" />
-            </image>
-        </ImageView>
-        <Pane fx:id="P_LinePane" layoutY="41.0" prefHeight="605.0" prefWidth="965.0" style="-fx-background-color: #009688;">
-            <children>
-                <Button fx:id="bT_Remove" layoutX="790.0" layoutY="421.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="100.0">
+                <Button fx:id="bT_Remove" layoutX="824.0" layoutY="461.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="100.0">
                     <graphic>
                         <ImageView fitHeight="46.0" fitWidth="55.0" pickOnBounds="true">
                             <image>
@@ -61,7 +19,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="bT_Add" layoutX="790.0" layoutY="155.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="149.0" text="   Agregar" textAlignment="RIGHT">
+                <Button fx:id="bT_Add" layoutX="790.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleButtonActionAdd" prefHeight="46.0" prefWidth="149.0" text="   Agregar" textAlignment="RIGHT">
                     <graphic>
                         <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true">
                             <image>
@@ -71,14 +29,8 @@
                     </graphic>
                 </Button>
                 <Line endX="400.0" layoutX="333.0" layoutY="60.0" startX="-100.0" />
-                <ComboBox fx:id="cB_LineType" layoutX="543.0" layoutY="119.0" prefHeight="31.0" prefWidth="197.0" promptText="Seleccione un tipo..." />
+                <ComboBox fx:id="cB_LineType" layoutX="575.0" layoutY="122.0" prefHeight="25.0" prefWidth="147.0" promptText="Seleccione un tipo..." />
                 <Label layoutX="433.0" layoutY="124.0" text="Tipo de línea:">
-                    <font>
-                        <Font name="Times New Roman" size="18.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="tF_PhoneNumber" layoutX="139.0" layoutY="119.0" prefHeight="31.0" prefWidth="186.0" />
-                <Label layoutX="56.0" layoutY="124.0" text="Nombre:">
                     <font>
                         <Font name="Times New Roman" size="18.0" />
                     </font>
@@ -88,214 +40,58 @@
                         <Font name="Times New Roman" size="18.0" />
                     </font>
                 </Label>
-                <Line endX="400.0" layoutX="333.0" layoutY="333.0" startX="-100.0" />
+                <Line endX="400.0" layoutX="333.0" layoutY="298.0" startX="-100.0" />
             <Label layoutX="219.0" layoutY="24.0" text="CLIENTE DE LOS SERVICIOS DE TELEFONÍA">
                <font>
                   <Font name="Times New Roman Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="56.0" layoutY="168.0" text="Apellidos:">
+            <Label layoutX="58.0" layoutY="124.0" text="Cédula de identidad:">
                <font>
                   <Font name="Times New Roman" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="139.0" layoutY="162.0" prefHeight="31.0" prefWidth="186.0" />
-            <Label layoutX="56.0" layoutY="210.0" text="Cédula:">
+            <Label layoutX="58.0" layoutY="163.0" text="Contacto telefónico:">
                <font>
                   <Font name="Times New Roman" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="139.0" layoutY="205.0" prefHeight="31.0" prefWidth="186.0" />
-            <Label layoutX="55.0" layoutY="251.0" text="Contacto:">
+            <Label layoutX="58.0" layoutY="202.0" text="Correo electrónico:">
                <font>
                   <Font name="Times New Roman" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="140.0" layoutY="246.0" prefHeight="31.0" prefWidth="186.0" />
-            <Label layoutX="433.0" layoutY="168.0" text="Correo electrónico:">
+            <Label layoutX="58.0" layoutY="242.0" text="Dirección física:">
                <font>
                   <Font name="Times New Roman" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="579.0" layoutY="162.0" prefHeight="25.0" prefWidth="161.0" />
-            <Label layoutX="433.0" layoutY="211.0" text="Dirección física:">
+            <Label layoutX="58.0" layoutY="320.0" text="Lista de los datos del cliente:">
                <font>
                   <Font name="Times New Roman" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="579.0" layoutY="206.0" prefHeight="25.0" prefWidth="161.0" />
-            <Label layoutX="56.0" layoutY="351.0" text="Lista de los datos del cliente:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TableView layoutX="55.0" layoutY="379.0" prefHeight="212.0" prefWidth="704.0">
+            <TableView layoutX="55.0" layoutY="361.0" prefHeight="250.0" prefWidth="724.0">
                <columns>
-                  <TableColumn prefWidth="71.66667175292969" text="Nombre" />
-                  <TableColumn minWidth="0.0" prefWidth="79.0" text="Apellidos" />
-                  <TableColumn prefWidth="77.33334350585938" text="Cédula" />
-                  <TableColumn minWidth="1.0" prefWidth="97.66665649414062" text="Teléfonos" />
-                  <TableColumn prefWidth="120.33331298828125" text="Correo electrónico" />
-                  <TableColumn prefWidth="141.6666259765625" text="Dirección física" />
-                  <TableColumn prefWidth="112.0" text="Tipo de línea" />
+                  <TableColumn prefWidth="99.66665649414062" text="Cédula" />
+                  <TableColumn minWidth="1.0" prefWidth="117.33334350585938" text="Contacto telefónico" />
+                  <TableColumn prefWidth="147.0" text="Correo electrónico" />
+                  <TableColumn prefWidth="135.0" text="Dirección física" />
+                  <TableColumn prefWidth="81.3333740234375" text="Tipo de línea" />
+                  <TableColumn prefWidth="121.6666259765625" text="Número de línea" />
                </columns>
             </TableView>
-            <TextField layoutX="579.0" layoutY="246.0" prefHeight="25.0" prefWidth="161.0" />
-            <Label layoutX="433.0" layoutY="251.0" text="Número de línea:">
+            <Label layoutX="434.0" layoutY="163.0" text="Número de línea:">
                <font>
                   <Font name="Times New Roman" size="18.0" />
                </font>
             </Label>
+            <TextField fx:id="tF_Id" layoutX="218.0" layoutY="122.0" prefHeight="25.0" prefWidth="148.0" />
+            <TextField fx:id="tF_Phone" layoutX="218.0" layoutY="163.0" prefHeight="25.0" prefWidth="148.0" />
+            <TextField fx:id="tF_Email" layoutX="218.0" layoutY="202.0" />
+            <TextField fx:id="tF_Address" layoutX="218.0" layoutY="242.0" prefHeight="25.0" prefWidth="148.0" />
+            <TextField fx:id="tF_NumberLine" layoutX="575.0" layoutY="163.0" prefHeight="25.0" prefWidth="148.0" />
             </children>
         </Pane>
-        <Pane fx:id="P_ServicePane" layoutY="36.0" prefHeight="616.0" prefWidth="965.0" style="-fx-background-color: #009688;" visible="false">
-         <children>
-            <Label layoutX="310.0" layoutY="36.0" text="SERVICIOS DE LÍNEA TELEFÓNICA">
-               <font>
-                  <Font name="Times New Roman Bold" size="24.0" />
-               </font>
-            </Label>
-            <Line endX="400.0" layoutX="363.0" layoutY="81.0" startX="-100.0" />
-            <Label layoutX="67.0" layoutY="139.0" text="Código:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TextField layoutX="148.0" layoutY="134.0" prefHeight="28.0" prefWidth="197.0" />
-            <Label layoutX="67.0" layoutY="172.0" text="Nombre: ">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TextField layoutX="148.0" layoutY="167.0" prefHeight="31.0" prefWidth="197.0" />
-            <Label layoutX="67.0" layoutY="205.0" text="Costo:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TextField layoutX="148.0" layoutY="200.0" prefHeight="31.0" prefWidth="197.0" />
-            <Label layoutX="422.0" layoutY="138.0" text="Descripción:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TextArea layoutX="422.0" layoutY="162.0" prefHeight="64.0" prefWidth="275.0" />
-            <Button layoutX="758.0" layoutY="160.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="149.0" text="   Agregar" textAlignment="RIGHT">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@disquete.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Line endX="400.0" layoutX="363.0" layoutY="252.0" startX="-100.0" />
-            <Label layoutX="67.0" layoutY="271.0" text="Lista de las especificaciones del servicio:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TableView layoutX="67.0" layoutY="311.0" prefHeight="284.0" prefWidth="577.0">
-               <columns>
-                  <TableColumn prefWidth="104.66667175292969" text="Código" />
-                  <TableColumn minWidth="0.0" prefWidth="112.33331298828125" text="Nombre" />
-                  <TableColumn prefWidth="241.66668701171875" text="Descripción" />
-                  <TableColumn prefWidth="117.66668701171875" text="Costo" />
-               </columns>
-            </TableView>
-            <Button layoutX="758.0" layoutY="401.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="100.0">
-               <graphic>
-                  <ImageView fitHeight="46.0" fitWidth="55.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@borrar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Label layoutX="67.0" layoutY="106.0" text="Especificaciones del servicio:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="P_BillPane" layoutY="41.0" prefHeight="616.0" prefWidth="965.0" style="-fx-background-color: #009688;" visible="false">
-         <children>
-            <Button fx:id="bT_Remove1" layoutX="790.0" layoutY="403.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="100.0">
-               <graphic>
-                  <ImageView fitHeight="46.0" fitWidth="55.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@borrar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="bT_Add1" layoutX="790.0" layoutY="170.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="149.0" text="   Agregar" textAlignment="RIGHT">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@disquete.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Line endX="400.0" layoutX="333.0" layoutY="60.0" startX="-100.0" />
-            <Label layoutX="385.0" layoutY="124.0" text="Fecha de facturación:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tF_PhoneNumber1" layoutX="168.0" layoutY="119.0" prefHeight="31.0" prefWidth="186.0" />
-            <Label layoutX="56.0" layoutY="124.0" text="Identificador:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="56.0" layoutY="82.0" text="Datos de facturación:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <Line endX="400.0" layoutX="333.0" layoutY="280.0" startX="-100.0" />
-            <Label layoutX="224.0" layoutY="24.0" text="FACTURAS MENSUALES DE LOS SERVICIOS">
-               <font>
-                  <Font name="Times New Roman Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="56.0" layoutY="168.0" text="Día de pago:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="56.0" layoutY="210.0" text="Monto total:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TextField layoutX="168.0" layoutY="205.0" prefHeight="31.0" prefWidth="186.0" />
-            <Label layoutX="385.0" layoutY="168.0" text="Puntos redimidos:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TextField layoutX="552.0" layoutY="162.0" prefHeight="31.0" prefWidth="186.0" />
-            <Label layoutX="57.0" layoutY="301.0" text="Lista de los datos de la factura:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TableView layoutX="56.0" layoutY="329.0" prefHeight="263.0" prefWidth="605.0">
-               <columns>
-                  <TableColumn prefWidth="71.66667175292969" text="Id" />
-                  <TableColumn minWidth="0.0" prefWidth="115.0" text="Día de pago" />
-                  <TableColumn prefWidth="106.0" text="Monto total" />
-                  <TableColumn minWidth="1.0" prefWidth="137.0" text="Puntos redimidos" />
-                  <TableColumn prefWidth="174.0" text="Fecha de facturación" />
-               </columns>
-            </TableView>
-            <DatePicker layoutX="168.0" layoutY="162.0" prefHeight="31.0" prefWidth="186.0" />
-            <DatePicker layoutX="552.0" layoutY="119.0" prefHeight="31.0" prefWidth="186.0" />
-         </children>
-      </Pane>
     </children>
 </AnchorPane>

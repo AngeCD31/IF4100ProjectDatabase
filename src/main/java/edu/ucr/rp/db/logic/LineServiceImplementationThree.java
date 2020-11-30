@@ -1,34 +1,32 @@
-package edu.ucr.rp.db.logic.line;
+package edu.ucr.rp.db.logic;
 
-import edu.ucr.rp.db.domain.LineFour;
-import edu.ucr.rp.db.persistance.LinePersistanceFour;
+import edu.ucr.rp.db.domain.LineThree;
+import edu.ucr.rp.db.persistance.LinePersistanceThree;
 import edu.ucr.rp.db.persistance.Persistance;
 import edu.ucr.rp.db.persistance.PersistanceException;
 
 import java.util.List;
 
-public class LineServiceImplementationFour implements LineService<LineFour, String>{
+public class LineServiceImplementationThree implements LineService<LineThree, String>{
 
-    private static LineServiceImplementationFour instance;
-    private static Persistance<LineFour, String> persistance;
+    private static LineServiceImplementationThree instance;
+    private static Persistance<LineThree, String> persistance;
 
-    public static LineServiceImplementationFour getInstance() {
+    public static LineServiceImplementationThree getInstance() {
         if (instance == null)
-            instance = new LineServiceImplementationFour();
+            instance = new LineServiceImplementationThree();
         return instance;
     }
 
-    private LineServiceImplementationFour() {
-        persistance = new LinePersistanceFour();
+    private LineServiceImplementationThree() {
+        persistance = new LinePersistanceThree();
 
     }
 
     @Override
-    public void create(LineFour line) throws LineServiceException {
+    public void create(LineThree line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
-        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getIdCard())).isEmpty())
-            throw new LineServiceException("Número de línea inválido.");
         if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
             throw new LineServiceException("Debe ingresar un ID.");
         try {
@@ -39,7 +37,7 @@ public class LineServiceImplementationFour implements LineService<LineFour, Stri
     }
 
     @Override
-    public List<LineFour> read() throws LineServiceException {
+    public List<LineThree> read() throws LineServiceException {
         try {
             return persistance.read();
         } catch (PersistanceException e) {
@@ -48,7 +46,7 @@ public class LineServiceImplementationFour implements LineService<LineFour, Stri
     }
 
     @Override
-    public List<LineFour> read(String key) throws LineServiceException {
+    public List<LineThree> read(String key) throws LineServiceException {
         try {
             return persistance.read(key);
         } catch (PersistanceException e) {
@@ -57,11 +55,9 @@ public class LineServiceImplementationFour implements LineService<LineFour, Stri
     }
 
     @Override
-    public void update(LineFour line) throws LineServiceException {
+    public void update(LineThree line) throws LineServiceException {
         if (line == null)
             throw new LineServiceException("No se puede agregar una línea nula.");
-        if (Integer.toString(line.getNumberLine()) == null || (Integer.toString(line.getIdCard())).isEmpty())
-            throw new LineServiceException("Número de línea inválido.");
         if (Integer.toString(line.getIdCard()) == null || Integer.toString(line.getIdCard()).isEmpty())
             throw new LineServiceException("Debe ingresar un ID.");
         try {
@@ -72,7 +68,7 @@ public class LineServiceImplementationFour implements LineService<LineFour, Stri
     }
 
     @Override
-    public void delete(LineFour line) throws LineServiceException {
+    public void delete(LineThree line) throws LineServiceException {
         try {
             persistance.delete(line);
         } catch (PersistanceException e) {

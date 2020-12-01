@@ -6,4 +6,5 @@ module IF4100ProjectDatabase {
     requires java.desktop;
 
     opens edu.ucr.rp.db.ui;
+    opens edu.ucr.rp.db.domain;
 }

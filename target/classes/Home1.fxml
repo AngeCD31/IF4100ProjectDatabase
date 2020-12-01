@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="642.0" prefWidth="953.0" style="-fx-background-color: #009688;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ucr.rp.db.ui.Home">
+<AnchorPane prefHeight="602.0" prefWidth="966.0" style="-fx-background-color: #009688;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ucr.rp.db.ui.Home">
     <children>
-        <Pane fx:id="P_LinePane" layoutX="-1.0" layoutY="-4.0" prefHeight="657.0" prefWidth="965.0" style="-fx-background-color: #009688;">
-            <children>
-                <Button fx:id="bT_Remove" layoutX="824.0" layoutY="461.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="100.0">
+      <Pane fx:id="P_LinePaneTwo" layoutY="36.0" prefHeight="566.0" prefWidth="966.0">
+         <children>
+            <TableView fx:id="tV_LinesFour" layoutX="572.0" layoutY="305.0" prefHeight="250.0" prefWidth="366.0" />
+            <TableView fx:id="tV_LinesThree" layoutX="23.0" layoutY="305.0" prefHeight="250.0" prefWidth="366.0" />
+            <TableView fx:id="tV_LinesTwo" layoutX="572.0" layoutY="57.0" prefHeight="232.0" prefWidth="366.0" />
+            <TableView fx:id="tV_LinesOne" layoutX="23.0" layoutY="57.0" prefHeight="232.0" prefWidth="366.0" />
+            <Label layoutX="392.0" layoutY="14.0" text="Lista de los datos:">
+               <font>
+                  <Font name="Times New Roman" size="25.0" />
+               </font>
+            </Label>
+                <Button fx:id="bT_Remove" layoutX="433.0" layoutY="269.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="100.0">
                     <graphic>
                         <ImageView fitHeight="46.0" fitWidth="55.0" pickOnBounds="true">
                             <image>
@@ -19,6 +29,31 @@
                         </ImageView>
                     </graphic>
                 </Button>
+         </children>
+      </Pane>
+      <HBox prefHeight="36.0" prefWidth="965.0" style="-fx-background-color: #e8e0db;">
+         <children>
+            <Button fx:id="bT_AddTwo" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonActionAddTwo" prefHeight="36.0" prefWidth="309.0" text="Añadir ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="bT_RemoveModify" mnemonicParsing="false" onAction="#handleButtonActionEditModify" prefHeight="36.0" prefWidth="317.0" text="Eliminar // Modificar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="bT_View" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleButtonActionView" prefHeight="36.0" prefWidth="340.0" text="Vista">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets></HBox>
+        <Pane fx:id="P_LinePane" layoutY="117.0" prefHeight="419.0" prefWidth="966.0" style="-fx-background-color: #009688;" visible="false">
+            <children>
                 <Button fx:id="bT_Add" layoutX="790.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleButtonActionAdd" prefHeight="46.0" prefWidth="149.0" text="   Agregar" textAlignment="RIGHT">
                     <graphic>
                         <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true">
@@ -40,7 +75,7 @@
                         <Font name="Times New Roman" size="18.0" />
                     </font>
                 </Label>
-                <Line endX="400.0" layoutX="333.0" layoutY="298.0" startX="-100.0" />
+                <Line endX="400.0" layoutX="333.0" layoutY="300.0" startX="-100.0" />
             <Label layoutX="219.0" layoutY="24.0" text="CLIENTE DE LOS SERVICIOS DE TELEFONÍA">
                <font>
                   <Font name="Times New Roman Bold" size="24.0" />
@@ -66,21 +101,6 @@
                   <Font name="Times New Roman" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="58.0" layoutY="320.0" text="Lista de los datos del cliente:">
-               <font>
-                  <Font name="Times New Roman" size="18.0" />
-               </font>
-            </Label>
-            <TableView layoutX="55.0" layoutY="361.0" prefHeight="250.0" prefWidth="724.0">
-               <columns>
-                  <TableColumn prefWidth="99.66665649414062" text="Cédula" />
-                  <TableColumn minWidth="1.0" prefWidth="117.33334350585938" text="Contacto telefónico" />
-                  <TableColumn prefWidth="147.0" text="Correo electrónico" />
-                  <TableColumn prefWidth="135.0" text="Dirección física" />
-                  <TableColumn prefWidth="81.3333740234375" text="Tipo de línea" />
-                  <TableColumn prefWidth="121.6666259765625" text="Número de línea" />
-               </columns>
-            </TableView>
             <Label layoutX="434.0" layoutY="163.0" text="Número de línea:">
                <font>
                   <Font name="Times New Roman" size="18.0" />
@@ -93,5 +113,6 @@
             <TextField fx:id="tF_NumberLine" layoutX="575.0" layoutY="163.0" prefHeight="25.0" prefWidth="148.0" />
             </children>
         </Pane>
+      <Pane fx:id="P_LinePaneThree" layoutY="36.0" prefHeight="566.0" prefWidth="966.0" visible="false" />
     </children>
 </AnchorPane>

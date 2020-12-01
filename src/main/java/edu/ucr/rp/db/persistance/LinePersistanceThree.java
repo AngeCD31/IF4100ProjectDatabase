@@ -3,6 +3,8 @@ package edu.ucr.rp.db.persistance;
 import edu.ucr.rp.db.domain.LineThree;
 import edu.ucr.rp.db.util.ConnectionDB;
 import edu.ucr.rp.db.util.LineBuilderThree;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,8 +64,8 @@ public class LinePersistanceThree implements Persistance<LineThree, String>{
     }
 
     @Override
-    public List<LineThree> read() throws PersistanceException {
-        List<LineThree> list = new ArrayList<>();
+    public ObservableList read() throws PersistanceException {
+        ObservableList list = FXCollections.observableArrayList();
         ResultSet resultSet;
         try {
             PreparedStatement statement = connection.prepareStatement("select * from LineThree");

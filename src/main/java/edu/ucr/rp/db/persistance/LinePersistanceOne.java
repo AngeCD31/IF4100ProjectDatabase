@@ -3,6 +3,10 @@ package edu.ucr.rp.db.persistance;
 import edu.ucr.rp.db.domain.LineOne;
 import edu.ucr.rp.db.util.ConnectionDB;
 import edu.ucr.rp.db.util.LineBuilderOne;
+import javafx.collections.FXCollections;
+import javafx.collections.FXCollections.*;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableList.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -68,8 +72,8 @@ public class LinePersistanceOne implements Persistance<LineOne, String>{
     }
 
     @Override
-    public List<LineOne> read() throws PersistanceException {
-        List<LineOne> list = new ArrayList<>();
+    public ObservableList read() throws PersistanceException {
+        ObservableList list = FXCollections.observableArrayList();
         ResultSet resultSet;
         try {
             PreparedStatement statement = connection.prepareStatement("select * from LineOne");

@@ -99,8 +99,7 @@ public class LinePersistanceOne implements Persistance<LineOne, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("update LineOne set NumberLine=?, LineType=?, PointsEarned=?, " +
-                                                "where IdCard=?");
+                    connection.prepareStatement("update LineOne set NumberLine=?, LineType=?, PointsEarned=? where IdCard=?");
             statement.setString(1, (Integer.toString(line.getNumberLine())));
             statement.setString(2, line.getLineType());
             statement.setString(3, (Integer.toString(line.getPointsEarned())));

@@ -20,7 +20,7 @@
                   <Font name="Times New Roman" size="25.0" />
                </font>
             </Label>
-                <Button fx:id="bT_Remove" layoutX="433.0" layoutY="269.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="100.0">
+                <Button fx:id="bT_Remove" layoutX="433.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleButtonActionDelete" prefHeight="64.0" prefWidth="100.0">
                     <graphic>
                         <ImageView fitHeight="46.0" fitWidth="55.0" pickOnBounds="true">
                             <image>
@@ -29,6 +29,11 @@
                         </ImageView>
                     </graphic>
                 </Button>
+            <Button fx:id="bT_Modify" layoutX="433.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleButtonActionModify" prefHeight="64.0" prefWidth="100.0" text="Modificar">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <HBox prefHeight="36.0" prefWidth="965.0" style="-fx-background-color: #e8e0db;">
@@ -38,7 +43,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="bT_RemoveModify" mnemonicParsing="false" onAction="#handleButtonActionEditModify" prefHeight="36.0" prefWidth="317.0" text="Eliminar // Modificar">
+            <Button fx:id="bT_RemoveModify" mnemonicParsing="false" onAction="#handleButtonActionEditDelete" prefHeight="36.0" prefWidth="317.0" text="Eliminar // Modificar">
                <font>
                   <Font size="15.0" />
                </font>

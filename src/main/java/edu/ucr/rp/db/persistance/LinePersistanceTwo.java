@@ -92,8 +92,8 @@ public class LinePersistanceTwo implements Persistance<LineTwo, String>{
         try {
             PreparedStatement statement =
                     connection.prepareStatement("update LineTwo set Email=? where IdCard=?");
-            statement.setInt(1, line.getIdCard());
-            statement.setString(2, line.getEmail());
+            statement.setInt(2, line.getIdCard());
+            statement.setString(1, line.getEmail());
             statement.executeUpdate();
             System.out.println("Statement executed: " + "update LineTwo set "
                     + ", Email= " + "where IdCard="

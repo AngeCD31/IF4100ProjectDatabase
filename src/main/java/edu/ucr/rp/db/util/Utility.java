@@ -10,7 +10,7 @@ public class Utility {
 
     public static boolean isNumber(String value) {
 
-        for (int n = 0; n <= value.length (); n++) {
+        for (int n = 0; n < value.length (); n++) {
             char c = value.charAt (n);
             boolean out = Character.isDigit(c);
                 if(out==false){

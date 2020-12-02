@@ -1,16 +1,15 @@
 package edu.ucr.rp.db.util;
 
 import edu.ucr.rp.db.domain.LineOne;
+import edu.ucr.rp.db.domain.View;
 
-public class LineBuilderOne {
+public class ViewBuilder {
 
     private int numberLine;
-    private String lineType;
+    private String email;
+    private String address;
     private int pointsEarned;
     private int idCard;
-    private String CRS;
-    private String UVS;
-
 
     public int getNumberLine() {
         return numberLine;
@@ -20,12 +19,20 @@ public class LineBuilderOne {
         this.numberLine = numberLine;
     }
 
-    public String getLineType() {
-        return lineType;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLineType(String lineType) {
-        this.lineType = lineType;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getPointsEarned() {
@@ -44,23 +51,7 @@ public class LineBuilderOne {
         this.idCard = idCard;
     }
 
-    public String getCRS() {
-        return CRS;
-    }
-
-    public void setCRS(String CRS) {
-        this.CRS = CRS;
-    }
-
-    public String getUVS() {
-        return UVS;
-    }
-
-    public void setUVS(String UVS) {
-        this.UVS = UVS;
-    }
-
-    public LineOne build(){
-        return new LineOne(numberLine, lineType, pointsEarned, idCard, CRS, UVS);
+    public View build(){
+        return new View(numberLine, email, address, pointsEarned, idCard);
     }
 }

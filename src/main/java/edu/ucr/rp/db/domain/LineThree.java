@@ -4,10 +4,14 @@ public class LineThree {
 
     private int idCard;
     private String address;
+    private String CRS;
+    private String UVS;
 
-    public LineThree(int idCard, String address) {
+    public LineThree(int idCard, String address, String UVS, String CRS) {
         this.idCard = idCard;
         this.address = address;
+        this.CRS = CRS;
+        this.UVS = UVS;
     }
 
     public int getIdCard() {
@@ -24,5 +28,21 @@ public class LineThree {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCRS() {
+        return CRS;
+    }
+
+    public void setCRS(String CRS) {
+        this.CRS = CRS;
+    }
+
+    public String getUVS() {
+        return UVS;
+    }
+
+    public void setUVS(String UVS) {
+        this.UVS = UVS;
     }
 }

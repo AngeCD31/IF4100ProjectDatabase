@@ -6,6 +6,8 @@ public class LineBuilderTwo {
 
     private int idCard;
     private String email;
+    private String CRS;
+    private String UVS;
 
     public int getIdCard() {
         return idCard;
@@ -23,7 +25,23 @@ public class LineBuilderTwo {
         this.email = email;
     }
 
+    public String getCRS() {
+        return CRS;
+    }
+
+    public void setCRS(String CRS) {
+        this.CRS = CRS;
+    }
+
+    public String getUVS() {
+        return UVS;
+    }
+
+    public void setUVS(String UVS) {
+        this.UVS = UVS;
+    }
+
     public LineTwo build(){
-        return new LineTwo(idCard, email);
+        return new LineTwo(idCard, email, CRS, UVS);
     }
 }

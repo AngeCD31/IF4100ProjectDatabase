@@ -47,12 +47,13 @@ public class LinePersistanceOne implements Persistance<LineOne, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("insert into LineOne (NumberLine, LineType, PointsEarned, IdCard" +
-                                                ") values (?,?,?,?)");
+                    connection.prepareStatement("insert into LineOne (NumberLine, LineType, PointsEarned, IdCard, Creation_Records_Status, Update_Records_Status) values (?,?,?,?,?,?)");
             statement.setString(1, (Integer.toString(line.getNumberLine())));
             statement.setString(2, line.getLineType());
             statement.setString(3, (Integer.toString(line.getPointsEarned())));
             statement.setString(4, (Integer.toString(line.getIdCard())));
+            statement.setString(5, (line.getCRS()));
+            statement.setString(6, (line.getUVS()));
             statement.executeUpdate();
             System.out.println("Statement excecuted: " + "insert into LineOne (NumberLine, LineType, PointsEarned, IdCard" +
                                ") values ("
@@ -84,6 +85,8 @@ public class LinePersistanceOne implements Persistance<LineOne, String>{
                         line.setLineType(resultSet.getString("LineType"));
                         line.setPointsEarned(resultSet.getInt("PointsEarned"));
                         line.setIdCard(resultSet.getInt("IdCard"));
+                        line.setCRS(resultSet.getString("Creation_Records_Status"));
+                        line.setUVS(resultSet.getString("Update_Records_Status"));
                 list.add(line);
             }
         } catch (SQLException ex) {
@@ -99,11 +102,13 @@ public class LinePersistanceOne implements Persistance<LineOne, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("update LineOne set NumberLine=?, LineType=?, PointsEarned=? where IdCard=?");
+                    connection.prepareStatement("update LineOne set NumberLine=?, LineType=?, PointsEarned=?,  Creation_Records_Status=?, Update_Records_Status=? where IdCard=?");
             statement.setString(1, (Integer.toString(line.getNumberLine())));
             statement.setString(2, line.getLineType());
             statement.setString(3, (Integer.toString(line.getPointsEarned())));
-            statement.setInt(4, line.getIdCard());
+            statement.setString(4, line.getCRS());
+            statement.setString(5, line.getUVS());
+            statement.setInt(6, line.getIdCard());
             statement.executeUpdate();
             System.out.println("Statement executed: " + "update LineOne set " +
                     "NumberLine = " + line.getNumberLine() + ", LineType= "

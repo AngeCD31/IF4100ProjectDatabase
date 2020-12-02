@@ -6,6 +6,8 @@ public class LineBuilderThree {
 
     private int idCard;
     private String address;
+    private String CRS;
+    private String UVS;
 
     public int getIdCard() {
         return idCard;
@@ -23,7 +25,23 @@ public class LineBuilderThree {
         this.address = address;
     }
 
+    public String getCRS() {
+        return CRS;
+    }
+
+    public void setCRS(String CRS) {
+        this.CRS = CRS;
+    }
+
+    public String getUVS() {
+        return UVS;
+    }
+
+    public void setUVS(String UVS) {
+        this.UVS = UVS;
+    }
+
     public LineThree build(){
-        return new LineThree(idCard,address);
+        return new LineThree(idCard, address, CRS, UVS);
     }
 }

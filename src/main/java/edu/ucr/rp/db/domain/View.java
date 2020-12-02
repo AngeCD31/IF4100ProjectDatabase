@@ -1,21 +1,19 @@
 package edu.ucr.rp.db.domain;
 
-public class LineOne {
+public class View {
 
     private int numberLine;
-    private String lineType;
+    private String email;
+    private String address;
     private int pointsEarned;
     private int idCard;
-    private String CRS;
-    private String UVS;
 
-    public LineOne(int numberLine, String lineType, int pointsEarned, int idCard, String CRS, String v) {
+    public View(int numberLine, String email, String address, int pointsEarned, int idCard) {
         this.numberLine = numberLine;
-        this.lineType = lineType;
+        this.email = email;
+        this.address = address;
         this.pointsEarned = pointsEarned;
         this.idCard = idCard;
-        this.CRS = CRS;
-        this.UVS = v;
     }
 
     public int getNumberLine() {
@@ -26,12 +24,20 @@ public class LineOne {
         this.numberLine = numberLine;
     }
 
-    public String getLineType() {
-        return lineType;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLineType(String lineType) {
-        this.lineType = lineType;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getPointsEarned() {
@@ -48,21 +54,5 @@ public class LineOne {
 
     public void setIdCard(int idCard) {
         this.idCard = idCard;
-    }
-
-    public String getCRS() {
-        return CRS;
-    }
-
-    public void setCRS(String CRS) {
-        this.CRS = CRS;
-    }
-
-    public String getUVS() {
-        return UVS;
-    }
-
-    public void setUVS(String v) {
-        this.UVS = v;
     }
 }

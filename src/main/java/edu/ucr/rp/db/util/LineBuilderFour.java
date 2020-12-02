@@ -7,6 +7,8 @@ public class LineBuilderFour {
     private int numberLine;
     private int idCard;
     private String phone;
+    private String CRS;
+    private String UVS;
 
     public int getNumberLine() {
         return numberLine;
@@ -32,7 +34,23 @@ public class LineBuilderFour {
         this.phone = phone;
     }
 
+    public String getCRS() {
+        return CRS;
+    }
+
+    public void setCRS(String CRS) {
+        this.CRS = CRS;
+    }
+
+    public String getUVS() {
+        return UVS;
+    }
+
+    public void setUVS(String UVS) {
+        this.UVS = UVS;
+    }
+
     public LineFour build(){
-        return new LineFour(numberLine, idCard, phone);
+        return new LineFour(numberLine, idCard, phone, CRS, UVS);
     }
 }

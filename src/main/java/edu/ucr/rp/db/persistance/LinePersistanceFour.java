@@ -45,10 +45,12 @@ public class LinePersistanceFour implements Persistance<LineFour, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("insert into LineFour (NumberLine, IdCard, Phone) values (?,?,?)");
+                    connection.prepareStatement("insert into LineFour (NumberLine, IdCard, Phone, Creation_Records_Status, Update_Records_Status) values (?,?,?,?,?)");
             statement.setString(1, (Integer.toString(line.getNumberLine())));
             statement.setString(2, (Integer.toString(line.getIdCard())));
             statement.setString(3, line.getPhone());
+            statement.setString(4, (line.getCRS()));
+            statement.setString(5, (line.getUVS()));
             statement.executeUpdate();
             System.out.println("Statement excecuted: " + "insert into LineFour (NumberLine, IdCard, Phone) values ("
                     + line.getNumberLine() +", "
@@ -77,6 +79,8 @@ public class LinePersistanceFour implements Persistance<LineFour, String>{
                         line.setNumberLine(resultSet.getInt("NumberLine"));
                         line.setIdCard(resultSet.getInt("IdCard"));
                         line.setPhone(resultSet.getString("Phone"));
+                        line.setCRS(resultSet.getString("Creation_Records_Status"));
+                        line.setUVS(resultSet.getString("Update_Records_Status"));
                 list.add(line);
             }
         } catch (SQLException ex) {
@@ -92,10 +96,12 @@ public class LinePersistanceFour implements Persistance<LineFour, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("update LineFour set NumberLine=?, Phone=? where IdCard=?");
+                    connection.prepareStatement("update LineFour set NumberLine=?, Phone=?, Creation_Records_Status=?, Update_Records_Status=? where IdCard=?");
             statement.setString(1, (Integer.toString(line.getNumberLine())));
             statement.setString(2, line.getPhone());
-            statement.setInt(3, line.getIdCard());
+            statement.setString(3, line.getCRS());
+            statement.setString(4, line.getUVS());
+            statement.setInt(5, line.getIdCard());
             statement.executeUpdate();
             System.out.println("Statement executed: " + "update LineFour set " +
                     "NumberLine = " + line.getNumberLine() + ", Phone= "

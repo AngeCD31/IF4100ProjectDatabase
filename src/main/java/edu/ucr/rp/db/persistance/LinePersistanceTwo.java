@@ -45,10 +45,11 @@ public class LinePersistanceTwo implements Persistance<LineTwo, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("insert into LineTwo (IdCard, " +
-                                                "Email) values (?,?)");
+                    connection.prepareStatement("insert into LineTwo (IdCard, Email,  Creation_Records_Status, Update_Records_Status) values (?,?,?,?)");
             statement.setString(1, (Integer.toString(line.getIdCard())));
             statement.setString(2, line.getEmail());
+            statement.setString(3, line.getCRS());
+            statement.setString(4, line.getUVS());
             statement.executeUpdate();
             System.out.println("Statement excecuted: " + "insert into LineTwo (IdCard, " +
                                "Email) values ("
@@ -76,6 +77,8 @@ public class LinePersistanceTwo implements Persistance<LineTwo, String>{
                 LineTwo line = new LineBuilderTwo().build();
                         line.setIdCard(resultSet.getInt("IdCard"));
                         line.setEmail(resultSet.getString("Email"));
+                        line.setCRS(resultSet.getString("Creation_Records_Status"));
+                        line.setUVS(resultSet.getString("Update_Records_Status"));
                 list.add(line);
             }
         } catch (SQLException ex) {
@@ -91,9 +94,11 @@ public class LinePersistanceTwo implements Persistance<LineTwo, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("update LineTwo set Email=? where IdCard=?");
-            statement.setInt(2, line.getIdCard());
+                    connection.prepareStatement("update LineTwo set Email=?, Creation_Records_Status=?, Update_Records_Status=? where IdCard=?");
+            statement.setInt(4, line.getIdCard());
             statement.setString(1, line.getEmail());
+            statement.setString(2, line.getCRS());
+            statement.setString(3, line.getUVS());
             statement.executeUpdate();
             System.out.println("Statement executed: " + "update LineTwo set "
                     + ", Email= " + "where IdCard="

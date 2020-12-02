@@ -45,9 +45,11 @@ public class LinePersistanceThree implements Persistance<LineThree, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("insert into LineThree (IdCard, Address) values (?,?)");
+                    connection.prepareStatement("insert into LineThree (IdCard, Address, Creation_Records_Status, Update_Records_Status) values (?,?,?,?)");
             statement.setString(1, (Integer.toString(line.getIdCard())));
             statement.setString(2, line.getAddress());
+            statement.setString(3, (line.getCRS()));
+            statement.setString(4, (line.getUVS()));
             statement.executeUpdate();
             System.out.println("Statement excecuted: " + "insert into LineThree (IdCard, Address) values ("
                     + line.getIdCard() +", "
@@ -74,6 +76,8 @@ public class LinePersistanceThree implements Persistance<LineThree, String>{
                 LineThree line = new LineBuilderThree().build();
                         line.setIdCard(resultSet.getInt("IdCard"));
                         line.setAddress(resultSet.getString("Address"));
+                        line.setCRS(resultSet.getString("Creation_Records_Status"));
+                        line.setUVS(resultSet.getString("Update_Records_Status"));
                 list.add(line);
             }
         } catch (SQLException ex) {
@@ -89,9 +93,11 @@ public class LinePersistanceThree implements Persistance<LineThree, String>{
             throw new PersistanceException("Error con la conexión");
         try {
             PreparedStatement statement =
-                    connection.prepareStatement("update LineThree set Address=? where IdCard=?");
+                    connection.prepareStatement("update LineThree set Address=?,  Creation_Records_Status=?, Update_Records_Status=? where IdCard=?");
             statement.setString(1, line.getAddress());
-            statement.setInt(2, line.getIdCard());
+            statement.setInt(4, line.getIdCard());
+            statement.setString(2, line.getCRS());
+            statement.setString(3, line.getUVS());
             statement.executeUpdate();
             System.out.println("Statement executed: " + "update LineThree set " +
                     "Address= "

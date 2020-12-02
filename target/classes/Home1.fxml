@@ -9,29 +9,29 @@
 
 <AnchorPane prefHeight="602.0" prefWidth="966.0" style="-fx-background-color: #009688;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ucr.rp.db.ui.Home">
     <children>
-      <Pane fx:id="P_LinePaneTwo" layoutY="36.0" prefHeight="566.0" prefWidth="966.0">
+      <Pane fx:id="P_LinePaneTwo" layoutY="36.0" prefHeight="566.0" prefWidth="966.0" visible="false">
          <children>
-            <TableView fx:id="tV_LinesFour" layoutX="572.0" layoutY="305.0" prefHeight="250.0" prefWidth="366.0" />
-            <TableView fx:id="tV_LinesThree" layoutX="23.0" layoutY="305.0" prefHeight="250.0" prefWidth="366.0" />
-            <TableView fx:id="tV_LinesTwo" layoutX="572.0" layoutY="57.0" prefHeight="232.0" prefWidth="366.0" />
-            <TableView fx:id="tV_LinesOne" layoutX="23.0" layoutY="57.0" prefHeight="232.0" prefWidth="366.0" />
-            <Label layoutX="392.0" layoutY="14.0" text="Lista de los datos:">
+            <TableView fx:id="tV_LinesFour" layoutX="493.0" layoutY="305.0" prefHeight="250.0" prefWidth="445.0" />
+            <TableView fx:id="tV_LinesThree" layoutX="23.0" layoutY="305.0" prefHeight="250.0" prefWidth="445.0" />
+            <TableView fx:id="tV_LinesTwo" layoutX="493.0" layoutY="57.0" prefHeight="232.0" prefWidth="445.0" />
+            <TableView fx:id="tV_LinesOne" layoutX="23.0" layoutY="57.0" prefHeight="232.0" prefWidth="445.0" />
+            <Label layoutX="23.0" layoutY="15.0" text="Lista de los datos:">
                <font>
                   <Font name="Times New Roman" size="25.0" />
                </font>
             </Label>
-                <Button fx:id="bT_Remove" layoutX="433.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleButtonActionDelete" prefHeight="64.0" prefWidth="100.0">
+                <Button fx:id="bT_Remove" layoutX="231.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleButtonActionDelete" prefHeight="36.0" prefWidth="56.0">
                     <graphic>
-                        <ImageView fitHeight="46.0" fitWidth="55.0" pickOnBounds="true">
+                        <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true">
                             <image>
                                 <Image url="@borrar.png" />
                             </image>
                         </ImageView>
                     </graphic>
                 </Button>
-            <Button fx:id="bT_Modify" layoutX="433.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleButtonActionModify" prefHeight="64.0" prefWidth="100.0" text="Modificar">
+            <Button fx:id="bT_Modify" layoutX="314.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleButtonActionModify" prefHeight="36.0" prefWidth="73.0" text="Modificar">
                <font>
-                  <Font size="17.0" />
+                  <Font size="13.0" />
                </font>
             </Button>
          </children>
@@ -118,6 +118,14 @@
             <TextField fx:id="tF_NumberLine" layoutX="575.0" layoutY="163.0" prefHeight="25.0" prefWidth="148.0" />
             </children>
         </Pane>
-      <Pane fx:id="P_LinePaneThree" layoutY="36.0" prefHeight="566.0" prefWidth="966.0" visible="false" />
+      <Pane fx:id="P_LinePaneThree" layoutY="36.0" prefHeight="566.0" prefWidth="966.0">
+         <children>
+            <TableView fx:id="tV_View" layoutX="98.0" layoutY="73.0" prefHeight="479.0" prefWidth="770.0" />
+            <Label layoutX="44.0" layoutY="14.0" prefHeight="55.0" prefWidth="879.0" text="Dirección, número de línea, email y el total de puntos acomulados hasta ahora del top 20 de personas con la mayor cantidad de estos puntos." textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+         </children></Pane>
     </children>
 </AnchorPane>
